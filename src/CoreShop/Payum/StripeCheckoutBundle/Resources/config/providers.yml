@@ -1,0 +1,46 @@
+services:
+    coreshop.payum_stripe_checkout.provider.customer_email:
+        class: CoreShop\Payum\StripeCheckoutBundle\Provider\CustomerEmailProvider
+
+    coreshop.payum_stripe_checkout.provider.locale:
+        class: CoreShop\Payum\StripeCheckoutBundle\Provider\LocaleProvider
+
+    coreshop.payum_stripe_checkout.provider.payment_method_types:
+        class: CoreShop\Payum\StripeCheckoutBundle\Provider\PaymentMethodTypesProvider
+
+    coreshop.payum_stripe_checkout.provider.line_items:
+        class: CoreShop\Payum\StripeCheckoutBundle\Provider\LineItemsProvider
+        arguments:
+            $lineItemProvider: '@coreshop.payum_stripe_checkout.provider.line_item'
+            $shippingLineItemProvider: '@coreshop.payum_stripe_checkout.provider.shipping_line_item'
+
+    coreshop.payum_stripe_checkout.provider.line_item:
+        class: CoreShop\Payum\StripeCheckoutBundle\Provider\LineItemProvider
+        arguments:
+            $lineItemImagesProvider: '@coreshop.payum_stripe_checkout.provider.line_item_images'
+            $lineItemNameProvider: '@coreshop.payum_stripe_checkout.provider.line_item_name'
+
+    coreshop.payum_stripe_checkout.provider.line_item_images:
+        class: CoreShop\Payum\StripeCheckoutBundle\Provider\LineItemImagesProvider
+        arguments:
+            $thumbnailName: '%coreshop.payum_stripe_checkout.line_item_image.thumbnail_name%'
+            $fallbackImage: '%coreshop.payum_stripe_checkout.line_item_image.fallback_image%'
+
+    coreshop.payum_stripe_checkout.provider.line_item_name:
+        class: CoreShop\Payum\StripeCheckoutBundle\Provider\LinetItemNameProvider
+
+    coreshop.payum_stripe_checkout.provider.shipping_line_item:
+        class: CoreShop\Payum\StripeCheckoutBundle\Provider\ShippingLineItemProvider
+        arguments:
+            $shippingLineItemProvider: '@coreshop.payum_stripe_checkout.provider.shipping_line_item_name'
+
+    coreshop.payum_stripe_checkout.provider.shipping_line_item_name:
+        class: CoreShop\Payum\StripeCheckoutBundle\Provider\ShippingLineItemNameProvider
+
+    coreshop.payum_stripe_checkout.provider.details:
+        class: CoreShop\Payum\StripeCheckoutBundle\Provider\DetailsProvider
+        arguments:
+            $customerEmailProvider: '@coreshop.payum_stripe_checkout.provider.customer_email'
+            $lineItemsProvider: '@coreshop.payum_stripe_checkout.provider.line_items'
+            $paymentMethodTypesProvider: '@coreshop.payum_stripe_checkout.provider.payment_method_types'
+            $localeProvider: '@coreshop.payum_stripe_checkout.provider.locale'

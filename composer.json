@@ -1,0 +1,41 @@
+{
+    "name": "coreshop/payum-stripe-checkout-bundle",
+    "type": "pimcore-bundle",
+    "description": "CoreShop - Stripe Checkout Bundle",
+    "keywords": [
+        "coreshop",
+        "pimcore",
+        "ecommerce",
+        "stripe"
+    ],
+    "homepage": "http://www.coreshop.org",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Certimeter Group Mario Ramundo",
+            "email": "mario.ramundo@certimetergroup.com",
+            "homepage": "http://www.certimetergroup.com/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "prometee/payum-stripe": "^1.1",
+        "coreshop/payum-bundle": "^2.0"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-4": {
+            "CoreShop\\Payum\\StripeCheckoutBundle\\": "src/CoreShop/Payum/StripeCheckoutBundle"
+        }
+    },
+    "extra": {
+        "pimcore": {
+            "bundles": [
+                "CoreShop\\Payum\\StripeCheckoutBundle\\StripeCheckoutBundle"
+            ]
+        }
+    }
+}
