@@ -1,6 +1,6 @@
 # CoreShop Stripe Checkout Payum Connector
-This Bundle activates the Stripe Checkout PaymentGateway in CoreShop.
-It requires the [Prometee/PayumStripe](https://github.com/Prometee/PayumStripe) repository which will be installed automatically.
+This Bundle activates the Stripe Checkout Payment Gateway in CoreShop.
+It requires the [FLUX-SE/PayumStripe](https://github.com/FLUX-SE/PayumStripe) repository which will be installed automatically.
 
 ## Installation
 

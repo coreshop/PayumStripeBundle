@@ -4,7 +4,7 @@ imports:
 services:
     payum.stripe_checkout_gateway_factory:
         class: Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder
-        arguments: [Prometee\PayumStripe\StripeCheckoutSessionGatewayFactory]
+        arguments: [FluxSE\PayumStripe\StripeCheckoutSessionGatewayFactory]
         tags:
             - {name: payum.gateway_factory_builder, factory: stripe_checkout }
 
