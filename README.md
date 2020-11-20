@@ -7,7 +7,7 @@ It requires the [FLUX-SE/PayumStripe](https://github.com/FLUX-SE/PayumStripe) re
 #### 1. Composer
 
 ```json
-    "coreshop/payum-stripe-checkout-bundle": "dev-master"
+    "coreshop/payum-stripe-checkout-bundle": "^1.0"
 ```
 
 #### 2. Activate
