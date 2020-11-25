@@ -29,7 +29,7 @@ final class LocaleProvider implements LocaleProviderInterface
 
         $gatewayLanguage = $localeCode;
 
-        if (strpos($gatewayLanguage, '_') === true) {
+        if (strpos($gatewayLanguage, '_') !== false) {
             $splitGatewayLLanguage = explode('_', $gatewayLanguage);
             $gatewayLanguage = array_shift($splitGatewayLLanguage);
         }
