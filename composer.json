@@ -1,7 +1,7 @@
 {
-    "name": "coreshop/payum-stripe-checkout-bundle",
+    "name": "coreshop/payum-stripe-bundle",
     "type": "pimcore-bundle",
-    "description": "CoreShop - Stripe Checkout Bundle",
+    "description": "CoreShop - Stripe Bundle",
     "keywords": [
         "coreshop",
         "pimcore",
