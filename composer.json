@@ -28,13 +28,13 @@
     },
     "autoload": {
         "psr-4": {
-            "CoreShop\\Payum\\StripeCheckoutBundle\\": "src/CoreShop/Payum/StripeCheckoutBundle"
+            "CoreShop\\Payum\\StripeBundle\\": "src/CoreShop/Payum/StripeBundle"
         }
     },
     "extra": {
         "pimcore": {
             "bundles": [
-                "CoreShop\\Payum\\StripeCheckoutBundle\\StripeCheckoutBundle"
+                "CoreShop\\Payum\\StripeBundle\\StripeBundle"
             ]
         }
     }

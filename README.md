@@ -1,5 +1,5 @@
-# CoreShop Stripe Checkout Payum Connector
-This Bundle activates the Stripe Checkout Payment Gateway in CoreShop.
+# CoreShop Stripe Payum Connector
+This Bundle activates the Stripe Checkout & Stripe JS Payment Gateways in CoreShop.
 It requires the [FLUX-SE/PayumStripe](https://github.com/FLUX-SE/PayumStripe) repository which will be installed automatically.
 
 ## Installation
@@ -7,11 +7,11 @@ It requires the [FLUX-SE/PayumStripe](https://github.com/FLUX-SE/PayumStripe) re
 #### 1. Composer
 
 ```json
-    "coreshop/payum-stripe-checkout-bundle": "^1.0"
+    "coreshop/payum-stripe-bundle": "^2.0"
 ```
 
 #### 2. Activate
 Enable the Bundle in Pimcore Extension Manager
 
 #### 3. Setup
-Go to Coreshop -> PaymentProvider and add a new Provider. Choose `stripe_checkout` from `type` and fill out the required fields.
+Go to Coreshop -> PaymentProvider and add a new Provider. Choose `stripe_checkout`/`stripe_js` from `type` and fill out the required fields.
