@@ -16,6 +16,7 @@ namespace CoreShop\Payum\StripeBundle\Provider;
 
 use CoreShop\Component\Core\Model\OrderInterface;
 use CoreShop\Component\Core\Model\OrderItemInterface;
+use CoreShop\Component\Order\Model\AdjustmentInterface;
 
 final class LineItemProvider implements LineItemProviderInterface
 {
@@ -38,16 +39,34 @@ final class LineItemProvider implements LineItemProviderInterface
         /** @var OrderInterface|null $order */
         $order = $orderItem->getOrder();
 
-        if (null === $order || $orderItem->getItemPrice() < 1) {
+        if (null === $order) {
+            return null;
+        }
+
+        $itemAmount = $this->getLineItemAmount($orderItem);
+
+        if ($itemAmount < 1) {
             return null;
         }
 
         return [
-            'amount' => $orderItem->getItemPrice(),
+            'amount' => $itemAmount,
             'currency' => $order->getCurrency()->getIsoCode(),
             'name' => $this->lineItemNameProvider->getItemName($orderItem),
-            'quantity' => $orderItem->getQuantity(),
+            'quantity' => 1,
             'images' => $this->lineItemImagesProvider->getImageUrls($orderItem),
         ];
+    }
+
+    private function getLineItemAmount(OrderItemInterface $orderItem): int
+    {
+        $totalCartPriceRuleAdjustments = 0;
+        foreach ($orderItem->getAdjustments(AdjustmentInterface::CART_PRICE_RULE) as $adjustment) {
+            if ($adjustment->getNeutral()) {
+                $totalCartPriceRuleAdjustments += $adjustment->getAmount();
+            }
+        }
+
+        return $orderItem->getTotal() + $totalCartPriceRuleAdjustments;
     }
 }

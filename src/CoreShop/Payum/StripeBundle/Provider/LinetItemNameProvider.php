@@ -29,6 +29,6 @@ class LinetItemNameProvider implements LinetItemNameProviderInterface
             );
         }
 
-        return $itemName;
+        return sprintf('%sx - %s', $orderItem->getQuantity(), $itemName);
     }
 }
