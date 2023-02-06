@@ -16,12 +16,24 @@
             "email": "mario.ramundo@certimetergroup.com",
             "homepage": "http://www.certimetergroup.com/",
             "role": "Developer"
+        },
+        {
+            "name": "CoreShop Team",
+            "email": "info@coreshop.org",
+            "homepage": "https://www.coreshop.org/",
+            "role": "Developer"
+        },
+        {
+            "name": "Dominik Pfaffenbauer",
+            "email": "dominik@pfaffenbauer.at",
+            "homepage": "https://www.pfaffenbauer.at/",
+            "role": "Developer"
         }
     ],
     "require": {
-        "php": ">=7.2",
+        "php": ">=8.0",
         "flux-se/payum-stripe": "^1.2",
-        "coreshop/payum-bundle": "^2.0"
+        "coreshop/payum-bundle": "^2.0 | ^3.0"
     },
     "config": {
         "bin-dir": "bin"
@@ -32,6 +44,10 @@
         }
     },
     "extra": {
+        "branch-alias": {
+            "dev-master": "3.0-dev",
+            "dev-staging": "3.0-dev"
+        },
         "pimcore": {
             "bundles": [
                 "CoreShop\\Payum\\StripeBundle\\StripeBundle"
