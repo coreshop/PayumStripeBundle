@@ -33,10 +33,14 @@ final class ShippingLineItemProvider implements ShippingLineItemProviderInterfac
         }
 
         return [
-            'amount' => $order->getShipping(),
-            'currency' => $order->getCurrency()->getIsoCode(),
-            'name' => $this->shippingLineItemProvider->getItemName($order),
             'quantity' => 1,
+            'price_data' => [
+                'currency' => $order->getCurrency()->getIsoCode(),
+                'unit_amount' => $order->getShipping(),
+                'product_data' => [
+                    'name' => $this->shippingLineItemProvider->getItemName($order),
+                ],
+            ],
         ];
     }
 }
