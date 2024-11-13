@@ -54,6 +54,7 @@ final class DetailsProvider implements DetailsProviderInterface
         $lineItems = $this->lineItemsProvider->getLineItems($order);
         if (null !== $lineItems) {
             $details['line_items'] = $lineItems;
+            $details['mode'] = 'payment';
         }
 
         $details['payment_method_types'] = $this->paymentMethodTypesProvider->getPaymentMethodTypes($order);
