@@ -32,7 +32,11 @@
     ],
     "require": {
         "php": ">=8.0",
-        "flux-se/payum-stripe": "^2.0"
+        "flux-se/payum-stripe": "^2.0",
+        "coreshop/core-shop": "^3.0 || ^4.0"
+    },
+    "require-dev": {
+        "symfony/http-client": "^6.2"
     },
     "config": {
         "bin-dir": "bin"

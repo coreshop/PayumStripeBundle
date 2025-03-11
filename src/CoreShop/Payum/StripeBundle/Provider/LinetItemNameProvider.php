@@ -21,10 +21,10 @@ class LinetItemNameProvider implements LinetItemNameProviderInterface
 {
     public function getItemName(OrderItemInterface $orderItem): string
     {
-        $itemName = $orderItem->getName();
+        $itemName = $orderItem->getName($orderItem->getOrder()?->getLocaleCode());
 
         if (null === $itemName || '' === $itemName) {
-            throw new LogicException(
+            throw new \LogicException(
                 'The line item name is null or empty, please provide an "$orderItem" with a `name` !'
             );
         }

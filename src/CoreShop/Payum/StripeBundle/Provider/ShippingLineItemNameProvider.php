@@ -22,18 +22,17 @@ final class ShippingLineItemNameProvider implements ShippingLineItemNameProvider
     public function getItemName(OrderInterface $order): string
     {
         $carrier = $order->getCarrier();
+
         if (null === $carrier) {
-            throw new LogicException(
+            throw new \LogicException(
                 'The order does not have a carrier !'
             );
         }
 
-        $itemName = $carrier->getTitle();
+        $itemName = $carrier->getTitle($order->getLocaleCode());
 
         if (null === $itemName || '' === $itemName) {
-            throw new LogicException(
-                'The carrier title is null or empty, please provide a carrier with a `title` !'
-            );
+            $itemName = sprintf('Carrier ID: %s', $carrier->getId());
         }
 
         return $itemName;
