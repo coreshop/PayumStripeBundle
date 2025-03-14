@@ -55,7 +55,11 @@ final class LineItemImagesProvider implements LineItemImagesProviderInterface
         if (null !== $image = $product->getImage()) {
             /** @var Image $image */
             $imageThumbnail = $image->getThumbnail($this->thumbnailName);
-            $path = Tool::getHostUrl() . $imageThumbnail->getPath();
+            $path = $imageThumbnail->getPath();
+
+            if (null === parse_url($path, PHP_URL_SCHEME)) {
+                $path = Tool::getHostUrl() . $path;
+            }
         }
 
         return $this->getUrlFromPath($path);
