@@ -6,7 +6,7 @@ It requires the [FLUX-SE/PayumStripe](https://github.com/FLUX-SE/PayumStripe) re
 
 #### 1. Composer
 
-```json
+```bash
 composer req coreshop/payum-stripe-bundle:^2.0
 ```
 
